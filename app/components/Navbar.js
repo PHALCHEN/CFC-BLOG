@@ -156,7 +156,7 @@ const Navbar = () => {
         <ul class="flex flex-wrap justify-center -mb-px">
           <li class="mr-2">
             <a
-              href="#"
+              href="/"
               class="inline-block p-4 text-purple-600 border-b-2 border-purple-600 rounded-t-lg active  "
             >
               All

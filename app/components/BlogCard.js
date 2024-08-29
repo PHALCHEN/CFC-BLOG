@@ -2,8 +2,9 @@
 import React, { useState } from "react";
 import HeartIcon from "./icons/HeartIcon";
 import HeartFill from "./icons/HeartFill";
+import Link from "next/link";
 
-const BlogCard = ({ cover, title, author, creatAt, description }) => {
+const BlogCard = ({ cover, title, author, creatAt, description, id }) => {
   const [isFav, setIsFav] = useState(false);
   return (
     <div>
@@ -25,7 +26,7 @@ const BlogCard = ({ cover, title, author, creatAt, description }) => {
             </p>
 
             <div className="card-body ">
-              <h2 className="card-title">{title}</h2>
+              <h2 className="card-title ">{title}</h2>
               <div className="mt-[-50px]">
                 {" "}
                 <button
@@ -42,9 +43,11 @@ const BlogCard = ({ cover, title, author, creatAt, description }) => {
               <p>{description}</p>
 
               <div className="card-actions justify-end">
-                <button className=" hover:bg-gray-500 text-gray-800 font-semibold py-2 px-4 border border-red-600 bg-blue-600 rounded shadow">
-                  Read more
-                </button>
+                <Link href={`/blog/${id}`}>
+                  <button className=" hover:bg-gray-500 text-gray-800 font-semibold py-2 px-4 border border-red-600 bg-blue-600 rounded shadow">
+                    Read more
+                  </button>
+                </Link>
               </div>
             </div>
           </div>

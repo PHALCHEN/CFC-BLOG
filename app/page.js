@@ -5,6 +5,7 @@ import { db } from "./services/firebase";
 import { collection, onSnapshot, query } from "firebase/firestore";
 import EmptyData from "./components/EmptyData";
 import BlogCardsSkeleton from "./components/BlogCardsSkeleton";
+import Link from "next/link";
 const HomePage = () => {
   const [blogs, setBlogs] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -43,6 +44,7 @@ const HomePage = () => {
                 author={blog.author}
                 creatAt={blog.creatAt}
                 description={blog.description}
+                id={blog.id}
               />
             );
           })}
