@@ -59,68 +59,27 @@ const Navbar = () => {
         </div>
       </div> */}
       {/* <!-- nav bar section --> */}
-
-      <nav className="flex flex-wrap items-center justify-between p-3 bg-[#c9c9a8]">
-        <div className="text-xl">
-          {" "}
-          <a
-            href="#home"
-            className="block md:inline-block hover:text-blue-500 px-3 py-3 md:border-none"
-          >
-            News
-          </a>
-        </div>
-        <div className="flex md:hidden">
-          <button id="hamburger">
-            <img
-              className=" block"
-              src="https://img.icons8.com/fluent-systems-regular/2x/menu-squared-2.png"
-              width="40"
-              height="40"
-            />
-            <img
-              className="toggle hidden"
-              src="https://img.icons8.com/fluent-systems-regular/2x/close-window.png"
-              width="40"
-              height="40"
-            />
-          </button>
-        </div>
-        <div className="  hidden w-full md:w-auto md:flex text-right text-bold mt-5 md:mt-0 md:border-none">
-          <a
-            href="/"
-            className="block md:inline-block hover:text-blue-500 px-3 py-3 md:border-none"
-          >
+      <div className="flex fixed z-10 w-full shadow-sm bg-opacity-80 bg-clip-padding blur-backdrop-filter justify-between items-center bg-gray-900">
+        <a href="/">
+          <img
+            className="w-[180px] "
+            src="https://seeklogo.com/images/B/bluebird-group-logo-6E64B89C88-seeklogo.com.png"
+          />
+        </a>
+        <ul className="flex gap-4 text-white md:gap-14">
+          <a className="hover:font-bold cursor-pointer" href="/">
             Home
           </a>
-          <a
-            href="#services"
-            className="block md:inline-block hover:text-blue-500 px-3 py-3 md:border-none"
-          >
-            Blog
-          </a>
+          <li className="hover:font-bold cursor-pointer">About Us</li>
+          <li className="hover:font-bold cursor-pointer">Contact Us</li>
+        </ul>
+        <button className="btn z-10 transition duration-200 cursor-pointer text-opacity-90 hover:text-gray-400 bg-red-500 rounded-full text-white">
+          Login
+        </button>
+      </div>
 
-          <a
-            href="#gallery"
-            className="block md:inline-block hover:text-blue-500 px-3 py-3 md:border-none"
-          >
-            About
-          </a>
-        </div>
-
-        <div className=" w-full text-end hidden md:flex md:w-auto px-2 py-2 md:rounded">
-          <a href="tel:+123">
-            <div className="flex justify-end">
-              <div className="flex items-center h-10 w-30 rounded-md bg-[#6374d4] text-white font-medium p-2">
-                {/* <!-- Heroicon name: phone --> */}
-                Login
-              </div>
-            </div>
-          </a>
-        </div>
-      </nav>
       {/* <!-- hero seciton --> */}
-      <div className="relative w-full h-[320px]" id="home">
+      {/* <div className="relative w-full h-[320px]" id="home">
         <div className="absolute inset-0 opacity-70">
           <img
             src="https://image1.jdomni.in/banner/13062021/0A/52/CC/1AF5FC422867D96E06C4B7BD69_1623557926542.png"
@@ -188,7 +147,7 @@ const Navbar = () => {
             </a>
           </li>
         </ul>
-      </div>
+      </div> */}
     </div>
   );
 };

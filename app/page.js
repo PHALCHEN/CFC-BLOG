@@ -6,8 +6,10 @@ import { collection, onSnapshot, query } from "firebase/firestore";
 import EmptyData from "./components/EmptyData";
 import BlogCardsSkeleton from "./components/BlogCardsSkeleton";
 import Link from "next/link";
+import Search from "./components/Search";
 const HomePage = () => {
   const [blogs, setBlogs] = useState([]);
+  const [orgBlogs, setOrgBlogs] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     const fetchData = async () => {
@@ -20,6 +22,7 @@ const HomePage = () => {
 
         // change here...
         setBlogs(() => itemsArr);
+        setOrgBlogs(() => itemsArr);
         setIsLoading(() => false);
       });
 
@@ -29,8 +32,18 @@ const HomePage = () => {
   }, []);
 
   const isEmptyData = blogs.length === 0;
+
+  const filterPost = (tag) => {
+    if (tag == "all") {
+      setBlogs(orgBlogs);
+      return;
+    }
+    const itemsArr = orgBlogs.filter((item) => item.tag == tag);
+    setBlogs(() => itemsArr);
+  };
   return (
     <main>
+      <Search selectedTag={(tag) => filterPost(tag)} />
       {isLoading && <BlogCardsSkeleton />}
       {!isLoading && isEmptyData && <EmptyData />}
       {!isLoading && !isEmptyData && (

@@ -15,8 +15,12 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={inter.className}>
         <Navbar />
+        <br />
         <div className="h-5" />
-        <div className="px-10 py-5 min-h-[calc(100vh-160px)]"> {children}</div>
+        <div className="px-10 py-5 min-h-[calc(110vh-160px)] bg-neutral-200">
+          {" "}
+          {children}
+        </div>
         <Footer />
       </body>
     </html>

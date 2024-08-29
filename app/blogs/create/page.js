@@ -57,7 +57,7 @@ const CreateBlogPage = () => {
       </button>
       <dialog id="my_modal_1" className="modal">
         <div className="modal-box">
-          <h3 className="font-bold text-lg">Hello!</h3>
+          {/* <h3 className="font-bold text-lg">Hello!</h3>
           <p className="py-4">
             Press ESC key or click the button below to close
           </p>
@@ -111,7 +111,98 @@ const CreateBlogPage = () => {
                 Create
               </button>
             </form>
-          </div>
+          </div> */}
+          <form class="md:col-span-8 p-10" onSubmit={handleCreate}>
+            <div class="flex flex-wrap -mx-3 mb-6">
+              <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                <label
+                  class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                  for="grid-first-name"
+                >
+                  Cover
+                </label>
+                <input
+                  type="text"
+                  placeholder="Cover url..."
+                  class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                  name="cover"
+                  value={blogData.cover}
+                  onChange={handleChange}
+                  required
+                />
+                <p class="text-red-500 text-xs italic">
+                  Please fill out this field.
+                </p>
+              </div>
+              <br />
+              <div class="w-full md:w-1/2 px-3">
+                <label
+                  class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                  for="grid-last-name"
+                >
+                  Name
+                </label>
+                <input
+                  type="text"
+                  placeholder="Author's name..."
+                  name="author"
+                  value={blogData.author}
+                  onChange={handleChange}
+                  required
+                  class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                />
+              </div>
+            </div>
+            <div class="flex flex-wrap -mx-3 mb-6">
+              <div class="w-full px-3">
+                <label
+                  class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                  for="grid-password"
+                >
+                  Title
+                </label>
+                <input
+                  type="text"
+                  placeholder="Title..."
+                  name="title"
+                  value={blogData.title}
+                  onChange={handleChange}
+                  required
+                  class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                />
+              </div>
+            </div>
+
+            <div class="flex flex-wrap -mx-3 mb-6">
+              <div class="w-full px-3">
+                <label
+                  class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                  for="grid-password"
+                >
+                  Description
+                </label>
+                <textarea
+                  placeholder="description..."
+                  name="description"
+                  value={blogData.description}
+                  onChange={handleChange}
+                  required
+                  rows="10"
+                  class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                ></textarea>
+              </div>
+              <div class="flex justify-between w-full px-3">
+                <button
+                  class="shadow bg-indigo-600  hover:bg-indigo-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-6 rounded"
+                  type="submit"
+                  disabled={isLoading}
+                >
+                  {isLoading && <span className="loading loading-spinner" />}
+                  Create
+                </button>
+              </div>
+            </div>
+          </form>
         </div>
       </dialog>
     </main>
