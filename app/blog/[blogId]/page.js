@@ -75,12 +75,23 @@ const BlogDetailPage = ({ params }) => {
                 className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow"
               >
                 <li>
-                  <a>Edit</a>
+                  <button
+                    className=""
+                    onClick={() => router.push(`/blog/edit/${blogId}`)}
+                  >
+                    Edit
+                  </button>
                 </li>
                 <li>
-                  <button className="text-red-600" onClick={handleDelete}>
+                  <button
+                    className="text-red-600"
+                    onClick={() =>
+                      document.getElementById("my_modal_1").showModal()
+                    }
+                  >
                     Delete
                   </button>
+                  {/* Open the modal using document.getElementById('ID').showModal() method */}
                 </li>
               </ul>
             </div>
@@ -144,6 +155,22 @@ const BlogDetailPage = ({ params }) => {
           </div>
         </>
       )}
+      <dialog id="my_modal_1" className="modal">
+        <div className="modal-box">
+          <h3 className="font-bold text-lg">Delete item</h3>
+          <p className="py-4">Are you sure you want to delete item</p>
+          <div className="modal-action">
+            <form method="dialog" className="flex gap-5 ">
+              {/* if there is a button in form, it  will close the modal */}
+              <button className="btn ">Cancel</button>
+
+              <button className="btn btn-error " onClick={handleDelete}>
+                Delete
+              </button>
+            </form>
+          </div>
+        </div>
+      </dialog>
     </div>
   );
 };

@@ -4,22 +4,22 @@ import SearchIcon from "./icons/SearchIcon";
 
 const Search = ({ selectedTag }) => {
   const tags = [
-    {
-      id: 1,
-      name: "All",
-    },
-    {
-      id: 2,
-      name: "Sport",
-    },
-    {
-      id: 3,
-      name: "Computer Basic",
-    },
-    {
-      id: 4,
-      name: "Technology",
-    },
+    // {
+    //   id: 1,
+    //   name: "All",
+    // },
+    // {
+    //   id: 2,
+    //   name: "Sport",
+    // },
+    // {
+    //   id: 3,
+    //   name: "Computer Basic",
+    // },
+    // {
+    //   id: 4,
+    //   name: "Technology",
+    // },
   ];
   const [activeIndex, setActiveIndex] = useState(0);
   return (

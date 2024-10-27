@@ -4,7 +4,15 @@ import HeartIcon from "./icons/HeartIcon";
 import HeartFill from "./icons/HeartFill";
 import Link from "next/link";
 
-const BlogCard = ({ cover, title, author, creatAt, description, id }) => {
+const BlogCard = ({
+  cover,
+  title,
+  author,
+  createdAt,
+  description,
+  category,
+  id,
+}) => {
   const [isFav, setIsFav] = useState(false);
   return (
     <div>
@@ -22,7 +30,7 @@ const BlogCard = ({ cover, title, author, creatAt, description, id }) => {
               />
             </figure>
             <p className="font-semibold m-3">
-              {author} {creatAt}
+              {author}.{createdAt}.{category}
             </p>
 
             <div className="card-body ">
@@ -40,7 +48,7 @@ const BlogCard = ({ cover, title, author, creatAt, description, id }) => {
                   )}
                 </button>
               </div>
-              <p>{description}</p>
+              <p className="line-clamp-3">{description}</p>
 
               <div className="card-actions justify-end">
                 <Link href={`/blog/${id}`}>
