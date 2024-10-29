@@ -17,7 +17,7 @@ export default function RootLayout({ children }) {
         <Navbar />
         <br />
         <div className="h-5" />
-        <div className="px-10 py-5 min-h-[calc(110vh-160px)] bg-neutral-200">
+        <div className="px-10 py-5 min-h-[calc(110vh-160px)] bg-white">
           {" "}
           {children}
         </div>
