@@ -22,7 +22,6 @@ const BlogCard = ({
       >
         <div class=" bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl ">
           <div className="card cursor-pointer  hover:border-blue-600 card-compact bg-base-100 w-80 shadow-xl">
-            
             <figure>
               <img
                 src={cover}
@@ -61,10 +60,7 @@ const BlogCard = ({
             </div>
           </div>
         </div>
-        
       </section>
-
-      <script src="https://storage.ko-fi.com/cdn/scripts/overlay-widget.js"></script>
     </div>
   );
 };

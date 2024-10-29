@@ -56,7 +56,7 @@ const HomePage = () => {
   };
   return (
     <main className="flex flex-col ">
-      <NightModeToggle />
+
       <Search selectedTag={(tag) => filterPost(tag)} />
       <ProductFlterTab active={filter} onFilter={handleFilter} />
       {isLoading && <BlogCardsSkeleton />}

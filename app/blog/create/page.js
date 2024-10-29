@@ -1,14 +1,11 @@
 "use client";
 
-import { useState } from "react";
-import { addDoc, collection } from "firebase/firestore";
-import { db } from "@/app/services/firebase";
+import { createData } from "@/app/services/databaseService";
 import { formatDate } from "@/app/utils/formatDate";
-import { productCategories } from "@/app/constants/product";
+import { useState } from "react";
 
 const CreateBlogPage = () => {
-  const [blogInput, setBlogInput] = useState({
-    category: productCategories[0],
+  const [blogData, setBlogData] = useState({
     cover: "",
     author: "",
     title: "",
@@ -18,39 +15,34 @@ const CreateBlogPage = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setBlogInput((cv) => {
-      return {
-        ...cv,
-        [name]: value,
-      };
+    setBlogData((prevData) => {
+      return { ...prevData, [name]: value };
     });
   };
 
-  const handleSubmit = async (e) => {
+  const handleCreate = async (e) => {
     e.preventDefault();
-    setIsLoading(true);
-
     const now = new Date();
-    const createdAt = formatDate(now);
-
-    const newBlog = {
-      ...blogInput,
-      createdAt,
+    const formattedDate = formatDate(now);
+    const newBlogData = {
+      ...blogData,
+      createdAt: formattedDate,
     };
 
     try {
-      await addDoc(collection(db, "blogs"), newBlog);
-      setBlogInput({
-        category: "",
-        cover: "",
-        author: "",
-        title: "",
-        description: "",
+      setIsLoading(true);
+      await createData("blogs", newBlogData);
+      setBlogData(() => {
+        return {
+          cover: "",
+          author: "",
+          title: "",
+          description: "",
+        };
       });
       setIsLoading(false);
     } catch (error) {
       setIsLoading(false);
-      console.log(error);
     }
   };
 
@@ -58,7 +50,7 @@ const CreateBlogPage = () => {
     <main>
       <form
         className="max-w-[500px] mx-auto flex flex-col gap-5"
-        onSubmit={handleSubmit}
+        onSubmit={handleCreate}
       >
         <h1 className="text-2xl text-center">Create Blog</h1>
         <input
@@ -66,43 +58,36 @@ const CreateBlogPage = () => {
           placeholder="Cover url..."
           className="input input-bordered w-full"
           name="cover"
-          required
+          value={blogData.cover}
           onChange={handleChange}
-          value={blogInput.cover}
+          required
         />
-        <select
-          value={blogInput.category}
+        <input
+          type="text"
+          placeholder="Author's name..."
+          className="input input-bordered w-full"
+          name="author"
+          value={blogData.author}
           onChange={handleChange}
-          className="select select-bordered w-full "
           required
-          name="category"
-        >
-          {productCategories.map((category, index) => {
-            return (
-              <option key={index} value={category}>
-                {category}
-              </option>
-            );
-          })}
-        </select>
+        />
         <input
           type="text"
           placeholder="Title..."
           className="input input-bordered w-full"
           name="title"
-          required
+          value={blogData.title}
           onChange={handleChange}
-          value={blogInput.title}
+          required
         />
         <textarea
           className="textarea text-base textarea-bordered w-full"
           placeholder="description..."
           name="description"
-          required
+          value={blogData.description}
           onChange={handleChange}
-          value={blogInput.description}
+          required
         />
-
         <button
           className="btn btn-primary text-white"
           type="submit"
