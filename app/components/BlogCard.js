@@ -20,13 +20,14 @@ const BlogCard = ({
         id="Projects"
         className="w-fit mx-auto md:grid-cols-2 justify-items-center justify-center gap-y-20 gap-x-14 mt-10 mb-5"
       >
-        <div class=" bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl">
-          <div className="card cursor-pointer  hover:border-blue-600 card-compact bg-base-100 w-96 shadow-xl">
+        <div class=" bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl ">
+          <div className="card cursor-pointer  hover:border-blue-600 card-compact bg-base-100 w-80 shadow-xl">
+            
             <figure>
               <img
                 src={cover}
                 alt={title}
-                className="w-full h-[300px] object-cover shadow-slate-600"
+                className=" object-cover shadow-slate-600 "
               />
             </figure>
             <p className="font-semibold m-3">
@@ -60,6 +61,7 @@ const BlogCard = ({
             </div>
           </div>
         </div>
+        
       </section>
 
       <script src="https://storage.ko-fi.com/cdn/scripts/overlay-widget.js"></script>
