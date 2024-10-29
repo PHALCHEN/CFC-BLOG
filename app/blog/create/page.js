@@ -1,11 +1,13 @@
 "use client";
 
+import { productCategories } from "@/app/constants/product";
 import { createData } from "@/app/services/databaseService";
 import { formatDate } from "@/app/utils/formatDate";
 import { useState } from "react";
 
 const CreateBlogPage = () => {
-  const [blogData, setBlogData] = useState({
+  const [blogInput, setBlogData] = useState({
+    category: productCategories[0],
     cover: "",
     author: "",
     title: "",
@@ -25,7 +27,7 @@ const CreateBlogPage = () => {
     const now = new Date();
     const formattedDate = formatDate(now);
     const newBlogData = {
-      ...blogData,
+      ...blogInput,
       createdAt: formattedDate,
     };
 
@@ -34,6 +36,7 @@ const CreateBlogPage = () => {
       await createData("blogs", newBlogData);
       setBlogData(() => {
         return {
+          category: "",
           cover: "",
           author: "",
           title: "",
@@ -58,16 +61,31 @@ const CreateBlogPage = () => {
           placeholder="Cover url..."
           className="input input-bordered w-full"
           name="cover"
-          value={blogData.cover}
+          value={blogInput.cover}
           onChange={handleChange}
           required
         />
+        <select
+          value={blogInput.category}
+          onChange={handleChange}
+          className="select select-bordered w-full "
+          required
+          name="category"
+        >
+          {productCategories.map((category, index) => {
+            return (
+              <option key={index} value={category}>
+                {category}
+              </option>
+            );
+          })}
+        </select>
         <input
           type="text"
           placeholder="Author's name..."
           className="input input-bordered w-full"
           name="author"
-          value={blogData.author}
+          value={blogInput.author}
           onChange={handleChange}
           required
         />
@@ -76,7 +94,7 @@ const CreateBlogPage = () => {
           placeholder="Title..."
           className="input input-bordered w-full"
           name="title"
-          value={blogData.title}
+          value={blogInput.title}
           onChange={handleChange}
           required
         />
@@ -84,7 +102,7 @@ const CreateBlogPage = () => {
           className="textarea text-base textarea-bordered w-full"
           placeholder="description..."
           name="description"
-          value={blogData.description}
+          value={blogInput.description}
           onChange={handleChange}
           required
         />

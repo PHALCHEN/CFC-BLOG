@@ -34,7 +34,7 @@ const BlogCard = ({
             </p>
 
             <div className="card-body ">
-              <h2 className="card-title ">{title}</h2>
+              <h2 className="card-title w-[300px] h-[20px] ">{title}</h2>
               <div className="mt-[-50px]">
                 {" "}
                 <button

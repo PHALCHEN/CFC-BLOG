@@ -56,11 +56,9 @@ const HomePage = () => {
   };
   return (
     <main className="flex flex-col ">
-
       <Search selectedTag={(tag) => filterPost(tag)} />
       <ProductFlterTab active={filter} onFilter={handleFilter} />
       {isLoading && <BlogCardsSkeleton />}
-
       {!isLoading && isEmptyData && <EmptyData />}
       {!isLoading && !isEmptyData && (
         <div className="flex flex-wrap gap-10 max-auto p-2">
