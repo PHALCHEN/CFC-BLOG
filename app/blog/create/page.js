@@ -7,7 +7,7 @@ import { useState } from "react";
 
 const CreateBlogPage = () => {
   const [blogInput, setBlogData] = useState({
-    category: productCategories[0],
+    category: "",
     cover: "",
     author: "",
     title: "",

@@ -1,6 +1,1 @@
-export const productCategories = [
-//   "All",
-  "Sport",
-  "Computer Basic",
-  "Technology",
-];
+export const productCategories = ["Sport", "Computer Basic", "Technology"];
