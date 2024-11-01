@@ -96,8 +96,7 @@ const BlogDetailPage = ({ params }) => {
               </ul>
             </div>
           </div>
-
-          <div class="bg-gray-100  dark:bg-gray-800 py-8">
+          {/* <div class="bg-gray-100  dark:bg-gray-800 py-8">
             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
               <div class="flex flex-col md:flex-row -mx-4">
                 <div class="md:flex-1 px-4">
@@ -150,6 +149,48 @@ const BlogDetailPage = ({ params }) => {
                     </p>
                   </div>
                 </div>
+              </div>
+            </div>
+          </div> */}
+          <div class="font-sans bg-gray-100 px-4 py-12">
+            <div class="grid lg:grid-cols-2 gap-12 lg:max-w-6xl max-w-2xl mx-auto">
+              <div class="text-left">
+                <h2 class="text-gray-800 text-3xl font-bold mb-6">
+                  {blog.title}
+                </h2>
+                <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">
+                  {blog.description}
+                </p>
+                <div class="flex mb-4">
+                  <div class="mr-4">
+                    <span class="font-bold text-gray-700 dark:text-gray-300">
+                      Author: {blog.author}
+                    </span>
+                  </div>
+                </div>
+                <div class="mb-4">
+                  <span class="font-bold text-gray-700 dark:text-gray-300">
+                    Created At: {blog.createdAt}
+                  </span>
+                </div>
+
+                <div>
+                  <span class="font-bold text-gray-700 dark:text-gray-300">
+                    Description:
+                  </span>
+                  <p class="text-gray-600 dark:text-gray-300 text-sm mt-2">
+                    {blog.description}
+                  </p>
+                </div>
+                <p class="mb-4 text-sm text-gray-500">{blog.description}</p>
+                <p class="mb-4 text-sm text-gray-500">{blog.description}</p>
+              </div>
+              <div>
+                <img
+                  src={blog.cover}
+                  alt="Placeholder Image"
+                  class="rounded-lg object-contain w-full h-full"
+                />
               </div>
             </div>
           </div>

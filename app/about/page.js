@@ -3,7 +3,7 @@ import React from "react";
 const page = () => {
   return (
     <div>
-      {/* <div class="font-[sans-serif]">
+      <div class="font-[sans-serif]">
         <div class="h-60 w-full bg-gradient-to-r from-yellow-300 via-red-500 to-purple-600"></div>
 
         <div class="max-w-5xl max-md:max-w-xl max-sm:max-w-sm mx-auto -mt-48 px-6">
@@ -206,7 +206,7 @@ const page = () => {
             </div>
           </div>
         </div>
-      </div> */}
+      </div>
       <div class="sm:flex items-center max-w-screen-xl">
         <div class="sm:w-1/2 p-10">
           <div class="image object-center text-center">

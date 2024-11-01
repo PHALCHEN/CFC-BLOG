@@ -52,8 +52,11 @@ const BlogCard = ({
 
               <div className="card-actions justify-end">
                 <Link href={`/blog/${id}`}>
-                  <button className=" hover:bg-gray-500 text-gray-800 font-semibold py-2 px-4 border border-red-600 bg-blue-600 rounded shadow">
-                    Read more
+                  <button
+                    type="button"
+                    class="px-5 py-2.5 rounded-lg text-white text-sm tracking-wider font-medium border border-current outline-none bg-gradient-to-tr hover:bg-gradient-to-tl from-orange-700 to-orange-300"
+                  >
+                    Read more..
                   </button>
                 </Link>
               </div>
